@@ -1,0 +1,110 @@
+<!-- New Project Dialogue -->
+<div id="newProjectModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Project</h4>
+            </div>
+            <form action="/api/newProject" method="post">
+                <div class="modal-body">
+                    <table class="table table-newproject-modal">
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" placeholder="The name of your project" class="form-control"
+                                       name="projectname" id="project-name"></td>
+                        </tr>
+                        <tr>
+                            <td>Share with</td>
+                            <td><input type="text" placeholder="E-mail addresses of the other contributors"
+                                       class="form-control"></td>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <a title="Cancel" data-toggle="tooltip" type="button" class="btn btn-danger btn-md" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
+                    <a title="Create project" data-toggle="tooltip" type="button" class="btn btn-success btn-md" data-dismiss="modal" onclick ="newProject($('#project-name').val());"><i class="glyphicon glyphicon-ok"></i> New Project</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit User Dialogue -->
+<div id="editUserModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid" id="content">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad">
+
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><%= user.name %></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+
+
+                                    <div class=" col-md-9 col-lg-9 ">
+                                        <table class="table table-user-information">
+                                            <tbody>
+
+
+                                            <tr>
+                                                <td>Name</td>
+                                                <td><input type="text" id="editname" value="<%= user.name %>"
+                                                           class="form-control"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>City</td>
+                                                <td><input type="text" id="editcity" value="<%= user.city %>"
+                                                           class="form-control"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Country</td>
+                                                <td><%- include('cl_dropdown.ejs') %></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>E-Mail</td>
+                                                <td><input type="text" id="editemail" value="<%= user.email %>"
+                                                           class="form-control"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="pull-right">
+                            <a title="Cancel" data-toggle="tooltip" type="button" class="btn btn-danger btn-lg"
+                               data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></a>
+                            <a title="Save changes" data-toggle="tooltip" onclick ="editUser()" type="button"
+                               class="btn btn-success btn-lg"><i class="glyphicon glyphicon-floppy-disk"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="javascripts/custom/projectmanagement.js"></script>
+<script src="javascripts/custom/usermanagement.js"></script>

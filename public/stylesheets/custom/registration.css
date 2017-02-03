@@ -1,0 +1,10 @@
+body {
+}
+
+div.page-header, p.lead {
+    color: #ffffff !important;
+}
+
+div.regPanel {
+    margin-top: 1rem;
+}
